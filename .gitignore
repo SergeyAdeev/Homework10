@@ -1,6 +1,7 @@
 .DS_Store
 .idea/
 build/
+allure-results/
 local.properties
 *.iml
 .gradle
