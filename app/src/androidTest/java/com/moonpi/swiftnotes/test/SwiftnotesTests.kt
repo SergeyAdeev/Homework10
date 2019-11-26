@@ -15,7 +15,7 @@ import ru.tinkoff.allure.annotations.DisplayName
 
 @RunWith(AndroidJUnit4::class)
 @DisplayName("Создание заметки")
-class SwiftnoteTests : AbstractSwiftnotesTest() {
+class SwiftnotesTests : AbstractSwiftnotesTest() {
 
     private val alertDialog = SwiftnitesAlertDialog()
     private val toolbar = SwiftnotesToolbar()
