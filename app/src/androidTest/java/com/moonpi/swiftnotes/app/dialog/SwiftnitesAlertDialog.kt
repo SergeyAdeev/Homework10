@@ -18,7 +18,7 @@ class SwiftnitesAlertDialog {
             checkTitle(title)
             checkNegativeButtonDialog(textNegativeButton)
             checkPositiveButtonDialog(textPositiveButton)
-            deviceScreenshot("dialog_save_changes")
+            deviceScreenshot("dialog_$title")
         }
     }
 
@@ -37,14 +37,14 @@ class SwiftnitesAlertDialog {
     fun clickPositiveButton(textPositiveButton: String) {
         step("Нажать \"$textPositiveButton\"") {
             onView(allOf(withId(R.id.button1))).perform(click())
-            deviceScreenshot("click_positive_alert")
+            deviceScreenshot("click_$textPositiveButton")
         }
     }
 
     fun clickNegativeButton(textNegativeButton: String) {
         step("Нажать \"$textNegativeButton\"") {
             onView(allOf(withId(R.id.button2))).perform(click())
-            deviceScreenshot("click_negative_alert")
+            deviceScreenshot("click_$textNegativeButton")
         }
     }
 }

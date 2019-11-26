@@ -24,9 +24,10 @@ class SwiftnoteTests : AbstractSwiftnotesTest() {
     private val launcher = SwiftNotesLauncher()
     private val menu = SwiftnotesMenu()
 
-    //TODO strings
     private val titleText = "New note"
     private val noteText = "Note text for new note"
+    private val hintTitle = "Title"
+    private val hintNote = "Note"
     private val textNo = "No"
     private val textYes = "Yes"
     private val textOk = "Ok"
@@ -35,13 +36,19 @@ class SwiftnoteTests : AbstractSwiftnotesTest() {
     private val textSaveChanges = "Save changes?"
     private val appName = "Swiftnotes"
 
+    private val textNoteFontSize = "Note font size"
+    private val textHideNoteBody = "Hide note body in list"
+    private val textBackupNotes = "Backup notes"
+    private val textRestoreNotes = "Restore notes"
+    private val textRateApp = "Rate app"
+
     @Test
     @DisplayName("Проверка экрана создания заметки")
     fun testNewNoteScreen() {
         launcher.launchApp()
         mainPage.clickNewNoteButton()
-        notePage.checkTitleHint()
-        notePage.checkNoteHint()
+        notePage.checkTitleHint(hintTitle)
+        notePage.checkNoteHint(hintNote)
         toolbar.clickBack()
         alertDialog.checkDialog(textSaveChanges, textYes, textNo)
         alertDialog.clickNegativeButton(textNo)
@@ -82,13 +89,13 @@ class SwiftnoteTests : AbstractSwiftnotesTest() {
     fun testToolbarItems() {
         launcher.launchApp()
         toolbar.clickMore(R.id.action_search, textMenu)
-        menu.checkMenuItem("Backup notes")
-        menu.checkMenuItem("Restore notes")
-        menu.checkMenuItem("Rate app")
+        menu.checkMenuItem(textBackupNotes)
+        menu.checkMenuItem(textRestoreNotes)
+        menu.checkMenuItem(textRateApp)
         pressBack()
         mainPage.clickNewNoteButton()
         toolbar.clickMore(R.id.action_note_colour, textMenu)
-        menu.checkMenuItem("Note font size")
-        menu.checkMenuItem("Hide note body in list")
+        menu.checkMenuItem(textNoteFontSize)
+        menu.checkMenuItem(textHideNoteBody)
     }
 }

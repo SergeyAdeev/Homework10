@@ -35,7 +35,7 @@ class SwiftnotesToolbar {
                     hasSibling(withId(siblingId)),
                     isDisplayed()))
                     .perform(click())
-            deviceScreenshot("click_more")
+            deviceScreenshot("click_$menuName")
         }
     }
 }
